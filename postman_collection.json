@@ -1,0 +1,384 @@
+{
+	"info": {
+		"_postman_id": "a8a0c0d0-5b5a-4e2a-8f0a-9e9e9e9e9e9e",
+		"name": "Challenge Fase 6 API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Equipamentos",
+			"item": [
+				{
+					"name": "Create Equipamento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"marca\": \"Marca A\",\n    \"modelo\": \"Modelo X\",\n    \"status\": \"ATIVO\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/equipamentos/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"equipamentos",
+								""
+						]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Equipamentos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/equipamentos/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"equipamentos",
+								""
+						]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Equipamento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/equipamentos/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"equipamentos",
+								"1"
+						]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Equipamento",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"marca\": \"Marca B\",\n    \"modelo\": \"Modelo Y\",\n    \"status\": \"INATIVO\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/equipamentos/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"equipamentos",
+								"1"
+						]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Equipamento",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/equipamentos/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"equipamentos",
+								"1"
+						]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sensores",
+			"item": [
+				{
+					"name": "Create Sensor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Sensor de Temperatura\",\n    \"status\": \"ATIVO\",\n    \"data_ativacao\": \"2025-09-28\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/sensores/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"sensores",
+								""
+						]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Sensores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/sensores/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"sensores",
+								""
+						]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Sensor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/sensores/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"sensores",
+								"1"
+						]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Sensor",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Sensor de Umidade\",\n    \"status\": \"INATIVO\",\n    \"data_ativacao\": \"2025-09-27\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/sensores/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"sensores",
+								"1"
+						]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sensor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/sensores/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"sensores",
+								"1"
+						]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Leituras Sensores",
+			"item": [
+				{
+					"name": "Create Leitura Sensor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"ATIVO\",\n    \"temperatura\": 25.5,\n    \"umidade\": 60.2,\n    \"vibracao\": 0.1,\n    \"data_coleta\": \"2025-09-28T10:00:00Z\",\n    \"t_equipamento_id\": 1,\n    \"t_sensor_id\": 1\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/leituras_sensores/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"leituras_sensores",
+								""
+						]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Leituras Sensores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/leituras_sensores/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"leituras_sensores",
+								""
+						]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Leitura Sensor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/leituras_sensores/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"leituras_sensores",
+								"1"
+						]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Leitura Sensor",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"INATIVO\",\n    \"temperatura\": 26.0,\n    \"umidade\": 61.0,\n    \"vibracao\": 0.2,\n    \"data_coleta\": \"2025-09-28T11:00:00Z\",\n    \"t_equipamento_id\": 1,\n    \"t_sensor_id\": 1\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/leituras_sensores/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"leituras_sensores",
+								"1"
+						]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Leitura Sensor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/leituras_sensores/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"leituras_sensores",
+								"1"
+						]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000"
+		}
+	]
+}
