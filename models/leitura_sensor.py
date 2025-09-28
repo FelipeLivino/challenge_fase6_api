@@ -4,8 +4,9 @@ from sqlalchemy.orm import relationship
 from models.base import Base
 
 class StatusLeitura(str, enum.Enum):
-    ATIVO = "ATIVO"
-    INATIVO = "INATIVO"
+    NORMAL = "NORMAL"
+    ALERTA = "ALERTA"
+    PERIGO = "PERIGO"
 
 class LeituraSensor(Base):
     __tablename__ = "t_leitura_sensor"
