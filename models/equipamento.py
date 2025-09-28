@@ -3,8 +3,10 @@ from sqlalchemy import Column, Integer, String, Enum
 from models.base import Base
 
 class StatusEquipamento(str, enum.Enum):
-    ATIVO = "ATIVO"
-    INATIVO = "INATIVO"
+    DESLIGADO = "DESLIGADO"
+    NORMAL = "NORMAL"
+    ATENCAO = "ATENCAO"
+    FALHA = "FALHA"
 
 class Equipamento(Base):
     __tablename__ = "t_equipamento"
