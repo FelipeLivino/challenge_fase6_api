@@ -5,12 +5,21 @@ from typing import List
 from crud import leitura_sensor as leitura_sensor_crud
 from schemas import leitura_sensor as leitura_sensor_schema
 from core.database import get_db
+from model.ModelExecutor import ModelExecutor
 
 router = APIRouter()
 
-@router.post("/", response_model=leitura_sensor_schema.LeituraSensor)
-def create_leitura_sensor(leitura_sensor: leitura_sensor_schema.LeituraSensorCreate, db: Session = Depends(get_db)):
-    return leitura_sensor_crud.create_leitura_sensor(db=db, leitura_sensor=leitura_sensor)
+@router.post("/")
+def create_leitura_sensor(leitura_sensor: leitura_sensor_schema.LeituraSensorBase, db: Session = Depends(get_db)):
+    model_executor = ModelExecutor.get_instance()
+    prediction = model_executor.predict_leitura_sensor(leitura_sensor)
+    leitura_data_for_db = {
+        **leitura_sensor.model_dump(),
+        "status": prediction
+    }
+
+    leitura_data_for_db = leitura_sensor_schema.LeituraSensorCreate(**leitura_data_for_db)
+    return leitura_sensor_crud.create_leitura_sensor(db=db, leitura_sensor=leitura_data_for_db)
 
 @router.get("/", response_model=List[leitura_sensor_schema.LeituraSensor])
 def read_leitura_sensors(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):

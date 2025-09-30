@@ -3,7 +3,6 @@ from models.leitura_sensor import StatusLeitura
 from datetime import datetime
 
 class LeituraSensorBase(BaseModel):
-    status: StatusLeitura
     temperatura: float
     umidade: float | None = None
     vibracao: float
@@ -12,10 +11,10 @@ class LeituraSensorBase(BaseModel):
     t_sensor_id: int
 
 class LeituraSensorCreate(LeituraSensorBase):
-    pass
+    status: StatusLeitura
 
-class LeituraSensor(LeituraSensorBase):
+class LeituraSensor(LeituraSensorCreate):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
