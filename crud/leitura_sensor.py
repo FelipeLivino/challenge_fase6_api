@@ -14,7 +14,11 @@ def get_leitura_sensors_by_equipamento_id(db: Session, equipamento_id: int, skip
         .all()
 
 def get_leitura_sensors(db: Session, skip: int = 0, limit: int = 100):
-    return db.query(leitura_sensor_model.LeituraSensor).order_by(leitura_sensor_model.LeituraSensor.data_coleta.desc()).offset(skip).limit(limit).all()
+    return db.query(leitura_sensor_model.LeituraSensor) \
+        .order_by(leitura_sensor_model.LeituraSensor.data_coleta.desc()) \
+        .offset(skip) \
+        .limit(limit) \
+        .all()
 
 def create_leitura_sensor(db: Session, leitura_sensor: leitura_sensor_schema.LeituraSensorCreate):
     db_leitura_sensor = leitura_sensor_model.LeituraSensor(**leitura_sensor.model_dump())

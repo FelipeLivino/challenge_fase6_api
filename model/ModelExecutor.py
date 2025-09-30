@@ -24,12 +24,7 @@ class ModelExecutor:
         X = self.convert_to_sensor_list(leitura_sensor.model_dump())
         prediction = self.predict([X])[0]
 
-        if prediction == "ALERTA":
-            return "ALERTA"
-        elif prediction == "PERIGO":
-            return "PERIGO"
-        elif prediction == "NORMAL":
-            return "NORMAL"
+        return prediction
 
         
     def predict(self, X: list) -> list:
