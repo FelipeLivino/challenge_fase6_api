@@ -5,3 +5,6 @@ psycopg2-binary
 python-dotenv
 gunicorn
 pydantic-settings
+joblib
+pandas
+scikit-learn

@@ -5,12 +5,19 @@ from typing import List
 from crud import equipamento as equipamento_crud
 from schemas import equipamento as equipamento_schema
 from core.database import get_db
+from crud import leitura_sensor as leitura_sensor_crud
+from schemas import leitura_sensor as leitura_sensor_schema
 
 router = APIRouter()
 
 @router.post("/", response_model=equipamento_schema.Equipamento)
 def create_equipamento(equipamento: equipamento_schema.EquipamentoCreate, db: Session = Depends(get_db)):
     return equipamento_crud.create_equipamento(db=db, equipamento=equipamento)
+
+@router.get("/{equipamento_id}/leituras", response_model=List[leitura_sensor_schema.LeituraSensor])
+def read_leitura_sensors_by_equipamento_id(equipamento_id: int, skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    leitura_sensors = leitura_sensor_crud.get_leitura_sensors_by_equipamento_id(db, equipamento_id=equipamento_id, skip=skip, limit=limit)
+    return leitura_sensors
 
 @router.get("/", response_model=List[equipamento_schema.Equipamento])
 def read_equipamentos(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):

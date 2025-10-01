@@ -9,8 +9,12 @@ class EquipamentoBase(BaseModel):
 class EquipamentoCreate(EquipamentoBase):
     pass
 
+class EquipamentoStatusUpdate(BaseModel):
+    status: StatusEquipamento
+    
+
 class Equipamento(EquipamentoBase):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
