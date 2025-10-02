@@ -250,15 +250,6 @@ void acelerometroFuncionamento(float temperatura, float umidade){
   callWs(status, temperatura, umidade, vibracaoAtual);
   ultimoTempoEnvioWebservice = millis();
  }
- Serial.print(" status: ");
- Serial.print(status);
-
- Serial.print(" temperatura: ");
- Serial.print(temperatura);
- Serial.print(" umidade: ");
- Serial.print(umidade);
- Serial.print(" vibracao: ");
- Serial.println(vibracaoAtual);
 }
 
 
@@ -275,7 +266,6 @@ void callWs(char* status, float temperatura, float umidade, float vibracaoAtual 
  
  //formar arquivo json
  StaticJsonDocument<1024> doc;
- doc["status"] = status;
  doc["temperatura"] = temperatura;
  doc["umidade"] = umidade;
  doc["vibracao"] = vibracaoAtual;
@@ -285,9 +275,6 @@ void callWs(char* status, float temperatura, float umidade, float vibracaoAtual 
 
  String httpRequestData;
  serializeJson(doc, httpRequestData);
-
- Serial.println("Enviando JSON para o WebService:");
- Serial.println(httpRequestData);
 
  int httpResponseCode = http.POST(httpRequestData);
  if (httpResponseCode > 0) {
