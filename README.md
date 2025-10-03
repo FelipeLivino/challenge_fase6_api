@@ -43,6 +43,20 @@ O frontend foi construido usando Streamlit. Toda a lógica será implementada em
   
 <image src="assets/arquitetura.png" alt="Arquitetura do projeto" width="100%" height="100%">
 
+A arquitetura do projeto foi desenhada para ser modular e escalável, utilizando uma abordagem baseada em microserviços para desacoplar as responsabilidades e facilitar a manutenção. A seguir, detalhamos os principais componentes da arquitetura:
+
+- **API (Interface de Programação de Aplicações):** A API é o ponto central da nossa arquitetura, responsável por gerenciar todas as comunicações entre o cliente, o banco de dados e os modelos de machine learning. Ela foi desenvolvida em Python utilizando o framework FastAPI, que oferece alta performance e facilidade de uso. A API expõe endpoints para CRUD (Create, Read, Update, Delete) de equipamentos, sensores e leituras de sensores, além de um endpoint para realizar predições de falhas.
+
+- **Banco de Dados:** Utilizamos o PostgreSQL como sistema de gerenciamento de banco de dados relacional. Ele é responsável por armazenar todas as informações sobre os equipamentos, sensores e as leituras coletadas. A escolha pelo PostgreSQL se deu por sua robustez, confiabilidade e suporte a tipos de dados avançados.
+
+- **Modelos de Machine Learning:** Os modelos de machine learning são o coração da nossa solução de predição de falhas. Eles foram treinados para identificar padrões nos dados dos sensores que possam indicar uma falha iminente. O `ModelExecutor.py` é responsável por carregar o modelo treinado (`best_model.pkl`) e realizar as predições com base nos dados recebidos pela API.
+
+- **Wokwi (Simulador de Sensor):** Para simular o ambiente de produção e gerar dados para treinamento e teste, utilizamos o Wokwi, um simulador de hardware online. O `ESP32 NTP Example.ino` é um exemplo de como os sensores podem ser programados para enviar dados para a nossa API.
+
+- **Estrutura do Projeto:** O projeto foi organizado em diretórios que separam as responsabilidades, facilitando a navegação e o desenvolvimento. As principais pastas são: `api` para a lógica da API, `banco_dados` para scripts de banco de dados, `core` para configurações centrais, `crud` para as operações de banco de dados, `model` para os modelos de machine learning, `models` para as representações de dados do SQLAlchemy e `schemas` para os esquemas de validação de dados do Pydantic.
+
+<image src="assets/arquitetura_generalista.png" alt="Arquitetura do projeto" width="100%" height="100%">
+
 ## 1. Separação de Responsabilidades e Camadas
 
 | Bloco                   | Boa Prática                                                                 | Justificativa de Mercado                                                                                                                                                                                                                                                                                                      |
@@ -67,19 +81,6 @@ O frontend foi construido usando Streamlit. Toda a lógica será implementada em
 | Inferência do Algoritmo (na API)| **ML as a Service (MLaaS):** O modelo é carregado e executado diretamente na API (*runtime*). | Garante que as previsões (scores) e a lógica de alerta sejam rápidas e acessíveis no *dashboard*. Essa abordagem é mais comum e eficiente para servir modelos de inferência online.                                          |
 
 <image src="assets/arquitetura_generalista.png" alt="Arquitetura do projeto" width="100%" height="100%">
-
-A arquitetura do projeto foi desenhada para ser modular e escalável, utilizando uma abordagem baseada em microserviços para desacoplar as responsabilidades e facilitar a manutenção. A seguir, detalhamos os principais componentes da arquitetura:
-
-- **API (Interface de Programação de Aplicações):** A API é o ponto central da nossa arquitetura, responsável por gerenciar todas as comunicações entre o cliente, o banco de dados e os modelos de machine learning. Ela foi desenvolvida em Python utilizando o framework FastAPI, que oferece alta performance e facilidade de uso. A API expõe endpoints para CRUD (Create, Read, Update, Delete) de equipamentos, sensores e leituras de sensores, além de um endpoint para realizar predições de falhas.
-
-- **Banco de Dados:** Utilizamos o PostgreSQL como sistema de gerenciamento de banco de dados relacional. Ele é responsável por armazenar todas as informações sobre os equipamentos, sensores e as leituras coletadas. A escolha pelo PostgreSQL se deu por sua robustez, confiabilidade e suporte a tipos de dados avançados.
-
-- **Modelos de Machine Learning:** Os modelos de machine learning são o coração da nossa solução de predição de falhas. Eles foram treinados para identificar padrões nos dados dos sensores que possam indicar uma falha iminente. O `ModelExecutor.py` é responsável por carregar o modelo treinado (`best_model.pkl`) e realizar as predições com base nos dados recebidos pela API.
-
-- **Wokwi (Simulador de Sensor):** Para simular o ambiente de produção e gerar dados para treinamento e teste, utilizamos o Wokwi, um simulador de hardware online. O `ESP32 NTP Example.ino` é um exemplo de como os sensores podem ser programados para enviar dados para a nossa API.
-
-- **Estrutura do Projeto:** O projeto foi organizado em diretórios que separam as responsabilidades, facilitando a navegação e o desenvolvimento. As principais pastas são: `api` para a lógica da API, `banco_dados` para scripts de banco de dados, `core` para configurações centrais, `crud` para as operações de banco de dados, `model` para os modelos de machine learning, `models` para as representações de dados do SQLAlchemy e `schemas` para os esquemas de validação de dados do Pydantic.
-
 ## 📌 Resumo da Escolha Arquitetural  
 
 A escolha dessa arquitetura reflete uma solução de mercado **balanceada**, que prioriza a **agilidade** no contexto de um **MVP**, sem sacrificar a **escalabilidade a longo prazo**:
