@@ -56,6 +56,12 @@ O frontend foi construido usando Streamlit. Toda a lógica será implementada em
 | PostgreSQL        | **Banco de Dados Relacional Confiável:** SGBD robusto e amplamente utilizado.                   | Oferece confiabilidade, integridade de dados (chaves primárias, estrangeiras) e excelente para dados estruturados. É base para consultas SQL complexas, cálculo de KPIs e treino/inferência de ML.                                                           |
 | Streamlit         | **Dashboard Rápido para MVP/Protótipo:** Permite construir UIs simples rapidamente.              | Agiliza o desenvolvimento e entrega do MVP, focando na lógica de negócio e não nos KPIs. Permite validar resultados de Machine Learning de forma rápida.                                                                                                   |
 
+| Fluxo                          | Boa Prática                                                                 | Justificativa de Mercado                                                                                                                                                                                                 |
+|--------------------------------|-----------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Transporte Web Service HTTPS   | **Comunicação Segura e Ubíqua:** Utiliza protocolo padrão da web e criptografado. | O HTTPS é o padrão para comunicação pela internet. Embora o MQTT seja usado em IoT, o HTTPS é mais simples de implementar em Wokwi/ESP32 e mais fácil de hospedar em ambientes de nuvem/PaaS como o Heroku.                 |
+| Inferência do Algoritmo (na API)| **ML as a Service (MLaaS):** O modelo é carregado e executado diretamente na API (*runtime*). | Garante que as previsões (scores) e a lógica de alerta sejam rápidas e acessíveis no *dashboard*. Essa abordagem é mais comum e eficiente para servir modelos de inferência online.                                          |
+
+
 
 
 A arquitetura do projeto foi desenhada para ser modular e escalável, utilizando uma abordagem baseada em microserviços para desacoplar as responsabilidades e facilitar a manutenção. A seguir, detalhamos os principais componentes da arquitetura:
