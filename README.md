@@ -59,9 +59,13 @@ A arquitetura do projeto foi desenhada para ser modular e escalável, utilizando
 ## Links de repositórios e servidor 
 
 Link do repositório de API:  https://github.com/FelipeLivino/challenge_fase6_web
+
 Link do repositório web: https://github.com/FelipeLivino/challenge_fase6_api/tree/main
+
 Link servidor web: https://reply-web-5ff86c92bd5e.herokuapp.com/
+
 Link servidor API: https://reply-api-15a7328429e3.herokuapp.com/
+
 Link Wokiwi: https://wokwi.com/projects/431968269578375169
 
 ## 📁 Estrutura de pastas
