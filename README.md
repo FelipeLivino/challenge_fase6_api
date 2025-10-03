@@ -125,8 +125,11 @@ Pré-requisitos:
 **Ambiente Local** 
 1. Crie um ambiente virtual Python: python3 -m venv venv
 2. Ative o ambiente virtual: 
+
   MAC OS / Linux: source venv/bin/activate
+
   Windows: venv\Scripts\activate
+  
 3. Instale as dependências: pip install -r requirements.txt
 4. Execute o comando para iniciar o servidor: gunicorn -w 2 -k uvicorn.workers.UvicornWorker main:app
 
