@@ -40,8 +40,6 @@ A infraestrutura será baseada em serviços de nuvem, utilizando o Heroku para h
 O frontend foi construido usando Streamlit. Toda a lógica será implementada em Python, desde os simuladores até os modelos de previsão.
 
 ## Arquitetura
-
-<image src="assets/arquitetura_generalista.png" alt="Arquitetura do projeto" width="100%" height="100%">
   
 <image src="assets/arquitetura.png" alt="Arquitetura do projeto" width="100%" height="100%">
 
@@ -68,8 +66,7 @@ O frontend foi construido usando Streamlit. Toda a lógica será implementada em
 | Transporte Web Service HTTPS   | **Comunicação Segura e Ubíqua:** Utiliza protocolo padrão da web e criptografado. | O HTTPS é o padrão para comunicação pela internet. Embora o MQTT seja usado em IoT, o HTTPS é mais simples de implementar em Wokwi/ESP32 e mais fácil de hospedar em ambientes de nuvem/PaaS como o Heroku.                 |
 | Inferência do Algoritmo (na API)| **ML as a Service (MLaaS):** O modelo é carregado e executado diretamente na API (*runtime*). | Garante que as previsões (scores) e a lógica de alerta sejam rápidas e acessíveis no *dashboard*. Essa abordagem é mais comum e eficiente para servir modelos de inferência online.                                          |
 
-
-
+<image src="assets/arquitetura_generalista.png" alt="Arquitetura do projeto" width="100%" height="100%">
 
 A arquitetura do projeto foi desenhada para ser modular e escalável, utilizando uma abordagem baseada em microserviços para desacoplar as responsabilidades e facilitar a manutenção. A seguir, detalhamos os principais componentes da arquitetura:
 
@@ -83,6 +80,18 @@ A arquitetura do projeto foi desenhada para ser modular e escalável, utilizando
 
 - **Estrutura do Projeto:** O projeto foi organizado em diretórios que separam as responsabilidades, facilitando a navegação e o desenvolvimento. As principais pastas são: `api` para a lógica da API, `banco_dados` para scripts de banco de dados, `core` para configurações centrais, `crud` para as operações de banco de dados, `model` para os modelos de machine learning, `models` para as representações de dados do SQLAlchemy e `schemas` para os esquemas de validação de dados do Pydantic.
 
+  ## 📌 Resumo da Escolha Arquitetural  
+
+A escolha dessa arquitetura reflete uma solução de mercado **balanceada**, que prioriza a **agilidade** no contexto de um **MVP**, sem sacrificar a **escalabilidade a longo prazo**:
+
+- **Agilidade (FastAPI + Streamlit):**  
+  Permite a construção de ponta a ponta (**API + Dashboard**) rapidamente, usando a stack popular do **Python**.
+
+- **Robustez (PostgreSQL + Heroku):**  
+  Garante a **persistência** e a **integridade dos dados** em uma plataforma confiável (**Heroku**) com um SGBD maduro (**PostgreSQL**).
+
+- **Coerência (MLaaS):**  
+  O modelo de **Machine Learning** é integrado à camada de serviço (**FastAPI**) para que o **dashboard** consiga consumir as inferências de forma eficiente, fechando o ciclo de análise e decisão exigido pelo desafio.
 
 ## Links de repositórios e servidor 
 
