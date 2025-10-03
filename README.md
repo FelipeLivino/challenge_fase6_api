@@ -42,6 +42,8 @@ O frontend foi construido usando Streamlit. Toda a lógica será implementada em
 ## Arquitetura
 
 <image src="assets/arquitetura_generalista.png" alt="Arquitetura do projeto" width="100%" height="100%">
+  
+<image src="assets/arquitetura.png" alt="Arquitetura do projeto" width="100%" height="100%">
 
 A arquitetura do projeto foi desenhada para ser modular e escalável, utilizando uma abordagem baseada em microserviços para desacoplar as responsabilidades e facilitar a manutenção. A seguir, detalhamos os principais componentes da arquitetura:
 
