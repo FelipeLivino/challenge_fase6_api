@@ -80,7 +80,7 @@ A arquitetura do projeto foi desenhada para ser modular e escalável, utilizando
 
 - **Estrutura do Projeto:** O projeto foi organizado em diretórios que separam as responsabilidades, facilitando a navegação e o desenvolvimento. As principais pastas são: `api` para a lógica da API, `banco_dados` para scripts de banco de dados, `core` para configurações centrais, `crud` para as operações de banco de dados, `model` para os modelos de machine learning, `models` para as representações de dados do SQLAlchemy e `schemas` para os esquemas de validação de dados do Pydantic.
 
-  ## 📌 Resumo da Escolha Arquitetural  
+## 📌 Resumo da Escolha Arquitetural  
 
 A escolha dessa arquitetura reflete uma solução de mercado **balanceada**, que prioriza a **agilidade** no contexto de um **MVP**, sem sacrificar a **escalabilidade a longo prazo**:
 
