@@ -80,7 +80,6 @@ A arquitetura do projeto foi desenhada para ser modular e escalável, utilizando
 | Transporte Web Service HTTPS   | **Comunicação Segura e Ubíqua:** Utiliza protocolo padrão da web e criptografado. | O HTTPS é o padrão para comunicação pela internet. Embora o MQTT seja usado em IoT, o HTTPS é mais simples de implementar em Wokwi/ESP32 e mais fácil de hospedar em ambientes de nuvem/PaaS como o Heroku.                 |
 | Inferência do Algoritmo (na API)| **ML as a Service (MLaaS):** O modelo é carregado e executado diretamente na API (*runtime*). | Garante que as previsões (scores) e a lógica de alerta sejam rápidas e acessíveis no *dashboard*. Essa abordagem é mais comum e eficiente para servir modelos de inferência online.                                          |
 
-<image src="assets/arquitetura_generalista.png" alt="Arquitetura do projeto" width="100%" height="100%">
 ## 📌 Resumo da Escolha Arquitetural  
 
 A escolha dessa arquitetura reflete uma solução de mercado **balanceada**, que prioriza a **agilidade** no contexto de um **MVP**, sem sacrificar a **escalabilidade a longo prazo**:
