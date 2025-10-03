@@ -252,17 +252,6 @@ O projeto visa entregar uma solução inteligente e escalável para análise pre
 - Felipe	Configuração do Heroku e PostgreSQL.
 - Daniel V.	Modelagem de ML
 
-## 🔧 Como executar o código
-
-Para executar o código deste projeto, siga os passos abaixo:
-
-_Pré-requisitos:_
-
-- Python 3.8+ instalado
-- PostgreSQL instalado, ou uma instância Heroku Postgres configurada
-- Node.js e npm/yarn para o frontend
-- Heroku CLI
-
 ## 🗃 Histórico de lançamentos
 
 ## 📋 Licença
