@@ -39,7 +39,7 @@ A infraestrutura será baseada em serviços de nuvem, utilizando o Heroku para h
 
 O frontend foi construido usando Streamlit. Toda a lógica será implementada em Python, desde os simuladores até os modelos de previsão.
 
-▶️ [Assista ao vídeo no YouTube](https://youtu.be/RgsAcX__7xw)
+▶️ [Assista ao vídeo no YouTube](https://www.youtube.com/watch?v=AjQiXNsl79o)
 
 ## Arquitetura
   
